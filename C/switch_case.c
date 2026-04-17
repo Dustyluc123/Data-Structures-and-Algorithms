@@ -7,18 +7,31 @@ int main(){
     printf("2 - Verificar presença\n");
     printf("Escolha uma opção:\n");
     scanf("%d", &opcao);
+
     float nota_1, nota_2, media;
   
     switch (opcao){
 
         case 1:
             printf("Calculo da média do aluno\n");
+
             printf("Digite a primeira nota: ");
             scanf("%f", &nota_1);
+            // Se o usuário digitar 15, a condição abaixo é VERDADEIRA e o loop inicia
+            while (nota_1 < 0 || nota_1 > 10) {
+                printf("Nota invalida! Digite a nota 1 novamente (0-10): ");
+                scanf("%f", &nota_1);
+            }
+
             printf("Digite a segunda nota: ");
             scanf("%f", &nota_2);
+            while (nota_2 < 0 || nota_2 > 10) {
+                printf("Nota invalida! Digite a nota 2 novamente (0-10): ");
+                scanf("%f", &nota_2);
+            }
+
             media = (nota_1 + nota_2) / 2;
-            printf("A média do aluno é: %.2f\n", media);
+            printf("Media: %.2f\n", media);
             break;
         case 2:
             printf("Verificador de presença\n");
